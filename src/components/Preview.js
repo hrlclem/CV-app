@@ -1,0 +1,1 @@
+// Left side of the App, allowing the previewing of CV

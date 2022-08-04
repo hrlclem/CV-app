@@ -39,6 +39,9 @@ class Editing extends Component{
       //   skillArray: []
       // }
     }
+
+
+    this.state = this.state.bind(this);
   }
 
 
@@ -51,10 +54,9 @@ class Editing extends Component{
 
   render(){
     const { intro } = this.state;
-    console.log(intro.name)
 
     return (
-      
+
       <div className="Editing">
         <div className="intro">
           
@@ -123,4 +125,4 @@ class Editing extends Component{
   }
 }
 
-export { Editing } ;
+export default Editing ;

@@ -2,18 +2,23 @@
 
 import React from "react";
 
+
 const Preview = (props) => {
-    const { intro } = props;
+    console.log(props)
 
-    console.log(intro);
-
-    return(
-        <div>
-            <div>--</div>
-            {intro.name}
-            <div>--</div>
+    return (
+        <div className="previewDiv">
+            <div className="introPrev">
+                <div className="namePrev">{props.name}</div>  
+                <div className="addressPrev">{props.address}</div>            
+                <div className="mailPrev">{props.mail}</div>            
+                <div className="numberPrev">{props.number}</div>            
+                <div className="linkedinPrev">{props.linkedin}</div>            
+                <div className="otherPrev">{props.otherLink}</div>            
+            </div>
         </div>
-    )
-}
+    );
+  };
+  
 
 export default Preview;

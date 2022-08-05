@@ -1,16 +1,15 @@
 import './App.css';
 import Header from './components/Header';
-import Preview from './components/Preview';
-import Editing from './components/Editing';
+import Main from './components/Main';
 
 
 
 function App(props) {
   return (
+
     <div className="App">
       <Header />
-      <Editing />
-      <Preview intro= {props.intro}/>
+      <Main />      
 
     </div>
   );

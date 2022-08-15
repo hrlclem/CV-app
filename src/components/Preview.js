@@ -4,7 +4,7 @@ import React from "react";
 
 
 const Preview = (props) => {
-    console.log(props)
+    // console.log(props)
 
     return (
         <div className="previewDiv">

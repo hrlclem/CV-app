@@ -41,26 +41,20 @@ class Editing extends Component{
       //   skillArray: []
       // }
     }
-
-    this.nameChange = this.nameChange.bind(this)
-    this.addressChange = this.addressChange.bind(this)
-    this.mailChange = this.mailChange.bind(this)
-    this.numberChange = this.numberChange.bind(this)
-    this.lkdChange = this.lkdChange.bind(this)
-    this.otherChange = this.otherChange.bind(this)
   }
 
 
-  nameChange = (e) => { this.setState({ intro: { name: e.target.value }})};
-  addressChange = (e) => { this.setState({ intro: { address: e.target.value }})};
-  mailChange = (e) => { this.setState({ intro: { mail: e.target.value }})};
-  numberChange = (e) => { this.setState({ intro: { number: e.target.value }})};
-  lkdChange = (e) => { this.setState({ intro: { linkedin: e.target.value }})};
-  otherChange = (e) => { this.setState({ intro: { otherLink: e.target.value }})};
+  nameChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, name: e.target.value}}))};
+  addressChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, address: e.target.value}}))};
+  mailChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, mail: e.target.value}}))};
+  numberChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, number: e.target.value}}))};
+  lkdChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, linkedin: e.target.value}}))};
+  otherChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, otherLink: e.target.value}}))};
 
 
   render(){
     const { intro } = this.state;
+    console.log(intro)
 
           return (
       <div className="main">
@@ -82,8 +76,9 @@ class Editing extends Component{
               <label htmlFor="nameInput">Name</label>
               <input 
                 className="nameInput" 
+                name="name"
                 value={intro.name || ''}
-                onChange={this.nameChange}
+                onChange={this.nameChange.bind(this)}
                 id="nameInput"
               />
             </div>
@@ -92,8 +87,9 @@ class Editing extends Component{
               <label htmlFor="addressInput">Address</label>
               <input 
                 className="addressInput" 
+                name="address"
                 value={intro.address || ''}
-                onChange={this.addressChange}
+                onChange={this.addressChange.bind(this)}
                 id="addressInput"
               />    
             </div>
@@ -102,8 +98,9 @@ class Editing extends Component{
               <label htmlFor="mailInput">Mail</label>
               <input 
                 className="mailInput" 
+                name="mail"
                 value={intro.mail || ''}
-                onChange={this.mailChange}
+                onChange={this.mailChange.bind(this)}
                 id="mailInput"
               />    
             </div>
@@ -112,8 +109,9 @@ class Editing extends Component{
               <label htmlFor="numberInput">Phone number</label>
               <input 
                 className="numberInput" 
+                name="number"
                 value={intro.number || ''}
-                onChange={this.numberChange}
+                onChange={this.numberChange.bind(this)}
                 id="numberInput"
               />    
             </div>
@@ -122,8 +120,9 @@ class Editing extends Component{
               <label htmlFor="linkedinInput">Linkedin</label>
               <input 
                 className="linkedinInput" 
+                name="linkedin"
                 value={intro.linkedin || ''}
-                onChange={this.lkdChange}
+                onChange={this.lkdChange.bind(this)}
                 id="linkedinInput"
               />    
             </div>
@@ -132,8 +131,9 @@ class Editing extends Component{
               <label htmlFor="otherLinkInput">Other</label>
               <input 
                 className="otherLinkInput" 
+                name="otherLink"
                 value={intro.otherLink || ''}
-                onChange={this.otherChange}
+                onChange={this.otherChange.bind(this)}
                 id="otherLinkInput"
               />    
             </div>

@@ -1,4 +1,4 @@
-import './App.css';
+import './design/App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 
@@ -10,7 +10,6 @@ function App(props) {
     <div className="App">
       <Header />
       <Main />      
-
     </div>
   );
 }

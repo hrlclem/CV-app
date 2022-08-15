@@ -1,11 +1,13 @@
 import React, {Component} from "react";
 
+
 class Header extends Component{
   render(){
     return (
-      <div className="App">
-        <div>CV APPLICATION</div>
-        <button>Export CV</button>
+      <div className="appHeader">
+        <div className="headerTitle">My CV</div>
+        <div className="headerTitle2">App</div>
+        <button className="exportBtn">Export CV</button>
       </div>
     );
   }

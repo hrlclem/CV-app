@@ -3,8 +3,6 @@
 import React, {Component} from "react";
 import Preview from "./Preview"
 
-// import uniqid from "uniqid";
-
 class Editing extends Component{
 
   constructor() {
@@ -18,18 +16,18 @@ class Editing extends Component{
         number: '',
         linkedin: '',
         otherLink: '',
+        description: ''
       },
-      // profile: {
-      //   description: ''
-      // },
-      // education: {
-      //   titleEdu: '',
-      //   degreeEdu: '',
-      //   subjectEdu: '',
-      //   descriptionEdu: '',
-      //   yearEdu: ''
-      // },
+      education: {
+        eduId: '',
+        titleEdu: '',
+        institutEdu: '',
+        descriptionEdu: '',
+        yearStartEdu: '',
+        yearEndEdu: ''
+      },
       // workExp: {
+      //   wordId: '',
       //   titleWork: '',
       //   descriptionWork: '',
       //   locationWork: '',
@@ -44,17 +42,27 @@ class Editing extends Component{
   }
 
 
+//INTRO INFO
   nameChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, name: e.target.value}}))};
   addressChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, address: e.target.value}}))};
   mailChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, mail: e.target.value}}))};
   numberChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, number: e.target.value}}))};
   lkdChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, linkedin: e.target.value}}))};
   otherChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, otherLink: e.target.value}}))};
+  descriptionChange = (e) => { this.setState(prevState =>({intro: {...prevState.intro, description: e.target.value}}))};
+
+//EDUCATION INFO
+  titleEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, titleEdu: e.target.value}}))};
+  institutEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, institutEdu: e.target.value}}))};
+  descriptionEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, descriptionEdu: e.target.value}}))};
+  yearStartEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, yearStartEdu: e.target.value}}))};
+  yearEndEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, yearEndEdu: e.target.value}}))};
+  
 
 
   render(){
     const { intro } = this.state;
-    console.log(intro)
+
 
           return (
       <div className="main">
@@ -66,12 +74,16 @@ class Editing extends Component{
                   number= {intro.number}
                   linkedin= {intro.linkedin}
                   otherLink= {intro.otherLink}
+                  description= {intro.description}
+
+                  titleEdu= {intro.titleEdu}
+
         />
 
         <div className="editingDiv">
-
+{/* INTRO DIV */}
           <div className="introEdit">
-            
+          <div className="prevTitle persoDetailTitle">Personal Details</div>
             <div className="nameDiv">
               <label htmlFor="nameInput">Name</label>
               <input 
@@ -137,7 +149,33 @@ class Editing extends Component{
                 id="otherLinkInput"
               />    
             </div>
+
+            <div className="descriptionDiv">
+              <label htmlFor="descriptionInput">Description</label>
+              <input 
+                className="descriptionInput" 
+                name="description"
+                value={intro.description || ''}
+                onChange={this.descriptionChange.bind(this)}
+                id="descriptionInput"
+              />    
+            </div>
           </div>
+
+
+{/* EDU DIV */}
+          <div className="prevTitle educationPrevTitle">Education</div>
+
+            <div className="eduTitleDiv">
+              <label htmlFor="titleEduInput">Program</label>
+              <input 
+                className="titleEduInput" 
+                name="title"
+                value={intro.titleEdu || ''}
+                onChange={this.titleEduChange.bind(this)}
+                id="titleEduInput"
+              />
+            </div>
         </div>
       </div>
 

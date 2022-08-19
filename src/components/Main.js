@@ -2,6 +2,7 @@
 
 import React, {Component} from "react";
 import Preview from "./Preview"
+import { addEducation } from "./addEducation";
 
 class Editing extends Component{
 
@@ -10,21 +11,21 @@ class Editing extends Component{
 
     this.state = {
       intro: {
-        name: 'Bob',
-        address: 'Hey',
-        mail: '',
-        number: '',
-        linkedin: '',
-        otherLink: '',
-        description: ''
+        name: 'testName',
+        address: 'testAddress',
+        mail: 'testMail',
+        number: 'testNumber',
+        linkedin: 'testLkd',
+        otherLink: 'testOther',
+        description: 'testDescription'
       },
       education: {
-        eduId: '',
-        titleEdu: '',
-        institutEdu: '',
-        descriptionEdu: '',
-        yearStartEdu: '',
-        yearEndEdu: ''
+        eduId: 'testIdEdu',
+        titleEdu: 'testEdu',
+        institutEdu: 'testInstit',
+        descriptionEdu: 'testDescrip',
+        yearStartEdu: 'testYearS',
+        yearEndEdu: 'testYearE'
       },
       // workExp: {
       //   wordId: '',
@@ -53,15 +54,15 @@ class Editing extends Component{
 
 //EDUCATION INFO
   titleEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, titleEdu: e.target.value}}))};
-  institutEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, institutEdu: e.target.value}}))};
-  descriptionEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, descriptionEdu: e.target.value}}))};
-  yearStartEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, yearStartEdu: e.target.value}}))};
-  yearEndEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, yearEndEdu: e.target.value}}))};
+  // institutEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, institutEdu: e.target.value}}))};
+  // descriptionEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, descriptionEdu: e.target.value}}))};
+  // yearStartEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, yearStartEdu: e.target.value}}))};
+  // yearEndEduChange = (e) => { this.setState(prevState =>({education: {...prevState.education, yearEndEdu: e.target.value}}))};
   
 
 
   render(){
-    const { intro } = this.state;
+    const { intro, education } = this.state;
 
 
           return (
@@ -76,8 +77,7 @@ class Editing extends Component{
                   otherLink= {intro.otherLink}
                   description= {intro.description}
 
-                  titleEdu= {intro.titleEdu}
-
+                  titleEdu= {education.titleEdu}
         />
 
         <div className="editingDiv">
@@ -165,6 +165,7 @@ class Editing extends Component{
 
 {/* EDU DIV */}
           <div className="prevTitle educationPrevTitle">Education</div>
+          <button className="eduAddBtn addBtn" onClick={addEducation}>Add</button>
 
             <div className="eduTitleDiv">
               <label htmlFor="titleEduInput">Program</label>
